@@ -5,6 +5,7 @@ from livekit.agents import AutoSubscribe, JobContext, WorkerOptions, cli, llm
 from livekit.agents.voice_assistant import VoiceAssistant
 from livekit.plugins import openai, silero
 from api import AssistantFnc
+from livekit import api
 
 load_dotenv()
 
@@ -32,6 +33,7 @@ async def entrypoint(ctx: JobContext):
 
     await asyncio.sleep(1)
     await assitant.say("Hey, how can I help you today!", allow_interruptions=True)
+    # assitant._room.__del__()
 
 
 if __name__ == "__main__":
